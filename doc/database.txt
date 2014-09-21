@@ -1,0 +1,7 @@
+USE mysql;
+CREATE DATABASE IF NOT EXISTS gounod;
+INSERT INTO user (Host, User, Password, Select_priv) VALUES
+   ('localhost', 'dbu_gounod', password('gounod42'), 'Y');
+FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON gounod.* TO dbu_gounod@localhost;
+FLUSH PRIVILEGES;
