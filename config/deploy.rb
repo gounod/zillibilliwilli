@@ -2,9 +2,12 @@
 
 # config valid only for Capistrano 3.1
 lock '3.2.1'
+set :ssh_options, { :forward_agent => true }
+set :repository_cache, "git_cache"
+set :deploy_via, :remote_cache
 
 set :application, 'gounod'
-set :repo_url, 'https://github.com/gounod/crm.git'
+set :repository, 'git@github.com:gounod/crm.git'
 
 set :deploy_to, '/home/gounod/website'
 
@@ -16,7 +19,7 @@ set :rbenv_ruby, '2.1.2'
 set :rvm_type, :user                     # Defaults to: :auto
 set :rvm_ruby_version, '2.1.2'      # Defaults to: 'default'
 
-set :linked_files, %w{config/database.yml settings.yml config/unicorn/production.rb config/unicorn.rb}
+set :linked_files, %w{config/database.yml config/unicorn/production.rb config/unicorn.rb}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/system}
 
 # Default branch is :master
