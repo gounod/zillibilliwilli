@@ -84,7 +84,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
-  config.time_zone = 'Europe/Berlin'
   config.i18n.default_locale = :de
   config.i18n.locale = :de
   config.encoding = "utf-8"

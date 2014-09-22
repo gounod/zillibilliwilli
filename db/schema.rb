@@ -11,12 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922202114) do
+ActiveRecord::Schema.define(version: 20140922213401) do
+
+  create_table "articles", force: true do |t|
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "discussions", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.string   "state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "gender"
     t.string   "first_name"
-    t.string   "lastname"
+    t.string   "last_name"
     t.integer  "apartment"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

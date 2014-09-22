@@ -6,7 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string :gender
       t.string :first_name
-      t.string :lastname
+      t.string :last_name
       t.integer :apartment
 
       ## Database authenticatable
