@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <%= nav_bar :static => :top, :responsive => true, :brand => "WEG Gounod 47 - 57", :brand_link => root_path() do %>
+    <%= menu_group :pull => :right do %>
+      <%= menu_item "Home", root_path %>
+      <%= menu_item "About Us", root_path %>
+      <%= menu_item "Contact", root_path %>
+      <% if current_user %>
+        <%= menu_item "Abmelden", destroy_user_session_path(), :method => :delete %>
+      <% else %>
+        <%= menu_item "anmelden", new_user_session_path %>
+      <% end %>
+    <% end %>
 
-<%= yield %>
+  <% end %>
+
+  <%= bootstrap_flash %>
+
+  <%= yield %>
 
 </body>
 </html>
