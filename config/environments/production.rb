@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -76,7 +78,22 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  config.action_mailer.default_url_options = { host: 'www.gounod.berlin' }
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.time_zone = 'Europe/Berlin'
+  config.i18n.default_locale = :de
+  config.i18n.locale = :de
+  config.encoding = "utf-8"
+  config.action_mailer.smtp_settings = {
+    address: "smtp.mandrillapp.com",
+    port: 587,
+    authentication: "plain",
+    user_name: "agenda-konferenz@ikusei.de",
+    password: "ZgJ699PM1DgIHa_ONE1wbQ",
+    enable_starttls_auto: false
+  }
 end

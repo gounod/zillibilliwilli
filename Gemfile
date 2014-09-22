@@ -21,7 +21,7 @@ gem 'therubyracer'
 gem "mysql2"
 
 
-gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise.git', :branch => 'lm-rails-4-2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
