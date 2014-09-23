@@ -19,8 +19,8 @@
       <tr>
         <td><%= link_to discussion.title, discussion_path(discussion) %></td>
         <td><%= discussion.try(:user).try(:short_name) %></td>
-        <td><%= discussion.state %></td>
-        <td><%= discussion.articles.count %></td>
+        <td><%= tag_label(discussion.state, :success) %></td>
+        <td><%= badge(discussion.articles.count, :warning) %> </td>
         <td><%= discussion.created_at.strftime("%d.%m.%Y %H:%M Uhr") %></td>
         <td><%= discussion.articles.try(:last).try(:updated_at).try(:strftime, "%d.%m.%Y %H:%M Uhr") %></td>
         <td>
@@ -37,6 +37,4 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_discussion_path,
-            :class => 'btn btn-primary' %>
+<%= link_to t('.new', :default => t("helpers.links.new")), new_discussion_path, :class => 'btn btn-primary', :remote => true %>

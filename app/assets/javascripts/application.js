@@ -11,7 +11,21 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+  $( "#popup" ).dialog({
+      autoOpen: false,
+
+      width: 500,
+      modal: true,
+      close: function() {
+      }
+    });
+});

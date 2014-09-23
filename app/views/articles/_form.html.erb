@@ -1,0 +1,30 @@
+<%= form_for [@discussion, @article], :html => { :class => "form-horizontal discussion" }, :remote => true do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-3' %>
+    <div class="col-lg-9">
+      <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                discussion_path(@discussion), :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

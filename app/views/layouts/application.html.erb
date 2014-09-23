@@ -18,12 +18,16 @@
         <%= menu_item "anmelden", new_user_session_path %>
       <% end %>
     <% end %>
-
   <% end %>
-
+  <%= render_breadcrumbs(" / ", { :class => '', :item_class => '', :divider_class => '', :active_class => 'active' }) %>
   <%= bootstrap_flash %>
+  <div id="popup"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12"><%= yield %></div>
+    </div>
+  </div>
 
-  <%= yield %>
 
 </body>
 </html>

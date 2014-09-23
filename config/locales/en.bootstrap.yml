@@ -5,6 +5,10 @@ en:
   breadcrumbs:
     application:
       root: "Index"
+    discussions:
+      root: "Discussions"
+      discussions: "Discussions"
+      edit: "edit"
     pages:
       pages: "Pages"
   helpers:
