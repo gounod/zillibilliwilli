@@ -22,7 +22,7 @@ gem "mysql2"
 
 gem 'responders', '~> 2.0'
 
-#User Roles
+#User Roles https://github.com/RolifyCommunity/rolify
 gem "rolify"
 
 gem "less-rails"
