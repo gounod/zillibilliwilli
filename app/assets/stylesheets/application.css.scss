@@ -20,3 +20,24 @@
   padding:10px;
   margin-bottom:15px;
 }
+
+.container{
+
+}
+
+#header{
+  z-index:-1;
+  height:500px;
+  margin-top:-20px;
+  margin-bottom: 20px;
+  background-image: url("/assets/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  overflow-y: scroll;
+  background-size: cover;
+  -webkit-background-size: cover; /* For WebKit*/
+  -moz-background-size: cover; /* Mozilla*/
+  -o-background-size: cover; /* Opera*/
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/background.jpg',     sizingMethod='scale');
+  -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/background.jpg', sizingMethod='scale');
+}

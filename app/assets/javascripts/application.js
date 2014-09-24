@@ -16,6 +16,8 @@
 //= require jquery.turbolinks
 //= require twitter/bootstrap
 //= require turbolinks
+//= require wysihtml5
+//= require bootstrap-wysihtml5
 //= require_tree .
 
 $(document).ready(function() {
@@ -28,4 +30,5 @@ $(document).ready(function() {
       close: function() {
       }
     });
+
 });

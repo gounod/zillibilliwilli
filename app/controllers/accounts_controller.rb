@@ -2,7 +2,8 @@
 
 class AccountsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_action :check_admin_role
   # GET /users
   # GET /users.json
   def index
@@ -72,5 +73,11 @@ class AccountsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:gender, :first_name, :last_name, :apartment, :email)
+    end
+
+    def check_admin_role
+      if current_user.blank? || !current_user.has_role?(:admin)
+        redirect_to root_path()
+      end
     end
 end
