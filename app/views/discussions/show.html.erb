@@ -9,7 +9,7 @@
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
   <dd><%= @discussion.try(:user).try(:short_name) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
-  <dd><%= @discussion.state %></dd>
+  <dd><%= tag_label(@discussion.state, :success) %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

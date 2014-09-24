@@ -22,6 +22,9 @@ gem "mysql2"
 
 gem 'responders', '~> 2.0'
 
+#User Roles
+gem "rolify"
+
 gem "less-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
