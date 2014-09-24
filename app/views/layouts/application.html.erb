@@ -44,6 +44,7 @@
         <%= menu_item "Blog", "http://blog.gounod.berlin" %>
         <%= menu_item "About Us", root_path %>
         <%= menu_item "Contact", root_path %>
+        <%= menu_item "Accounts", accounts_path %>
         <% if current_user %>
           <%= menu_item "Abmelden", destroy_user_session_path(), :method => :delete %>
         <% else %>
