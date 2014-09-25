@@ -1,6 +1,6 @@
 <%- model_class = Discussion -%>
 <div class="page-header">
-  <h1>Discussion: <%= model_class.human_attribute_name(:title) %></h1>
+  <h1>Thema: <%= @discussion.title %></h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -30,10 +30,10 @@
               :class => 'btn btn-danger' %>
 <% end %>
 
-<%= link_to t('.new', :default => t("helpers.links.new")), new_discussion_article_path(@discussion), :class => 'btn btn-primary', :remote => true %>
+<%= link_to "Kommentar schreiben", new_discussion_article_path(@discussion), :class => 'btn btn-primary', :remote => true %>
 
 <div>
-  <h2>Articles</h2>
+  <h2>Kommentare</h2>
 
   <% @discussion.articles.each do |article| %>
     <div class="article_element well">
