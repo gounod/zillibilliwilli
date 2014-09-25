@@ -1,0 +1,15 @@
+<h1>Anmeldung bei www.gounod.berlin</h1>
+
+<p>
+  <%= @greeting %>, folgen sie diesem Link um sich am Portal anzumelden:
+
+  <%= link_to "www.gounod.berlin", "http://www.gounod.berlin?auth_token=#{@user.authentication_token}" %>
+</p>
+
+
+Mit freundlichen Grüßen
+
+
+gounod.berlin
+
+

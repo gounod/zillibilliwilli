@@ -33,6 +33,7 @@ gem "less-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', :branch => 'lm-rails-4-2'
+gem 'devise-token_authenticatable'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

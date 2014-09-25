@@ -1,16 +1,17 @@
 <h2>Anmeldung</h2>
 
-<div class="alert alert-info" role="alert"><p>Bitte melden Sie sich jedes mal nur mit Ihrer bereits registrierten Email an.
-  Sie bekommen jedes mal eine Email zugesendet, in der ein einmalig gültiger Link enthalten ist. Dieser Link meldet sie automatisch am Potal an.</p>
-  <p>Sind sie noch nicht registriert, melden Sie sich bitte per <a href="mailto:metz@gounod.berlin?subject=Registration">Email</a> oder registrieren sie sich für den Newsletter.</p>
+
+
+<div class="alert alert-info" role="alert"><p>Die Anmeldung am Portal erfolgt ausschließlich durch Eingabe Ihrer Emailadresse. Sie erhalten jedes mal eine Email, in der ein einmalig gültiger Link enthalten ist. Mit diesem Link können Sie sich am Portal anmelden.</p>
+  <p>Falls Sie noch nicht registriert sind, melden Sie sich bitte per <a href="mailto:metz@gounod.berlin?subject=Registration">Email</a> oder registrieren sie sich für den Newsletter.</p>
 </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "form-inline"}) do |f| %>
+<%= form_for(resource, as: resource_name, url: email_login_path(), :html => {:class => "form-inline"}) do |f| %>
 
   <div class="form-group">
       <div class="input-group">
         <div class="input-group-addon">@</div>
-        <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email eingeben", :type => "email" %>
+        <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email eingeben", :type => "email", :required => "true"%>
       </div>
   </div>
 

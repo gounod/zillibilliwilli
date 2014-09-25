@@ -2,8 +2,26 @@
 
 class AccountsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  before_action :check_admin_role
+  before_action :authenticate_user!, :except => [:login]
+  before_action :check_admin_role, :except => [:login]
+
+  def login
+    if params[:user].present? && params[:user][:email].present?
+      user = User.find_by_email(params[:user][:email])
+      if user.present?
+        user.save
+        Mailer.login(user).deliver
+        flash[:notice] = "Es wurde eine Email an Ihre Adresse gesendet. Die Email enthält einen einmal gültigen Anmeldelink!"
+        redirect_to root_path()
+      else
+        flash[:notice] = "Beim Anmelden ist ein Fehler aufgetreten."
+      end
+    else
+      flash[:notice] = "Beim Anmelden ist ein Fehler aufgetreten."
+      redirect_to :back
+    end
+  end
+
   # GET /users
   # GET /users.json
   def index

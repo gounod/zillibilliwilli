@@ -1,11 +1,10 @@
 # encoding: utf-8
 
 Rails.application.routes.draw do
+  post 'accounts/login', :as => :email_login
+
   get 'page/start'
-
   get 'page/contact', :as => :contact
-
-  get 'start/contact'
 
   resources :discussions do
     resources :articles
