@@ -57,6 +57,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.4.1)
+      activerecord (>= 3.2, < 5)
     arel (6.0.0.beta1)
     bcrypt (3.1.7)
     builder (3.2.2)
@@ -212,6 +214,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv

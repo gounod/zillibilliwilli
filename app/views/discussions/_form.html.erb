@@ -27,7 +27,12 @@
     </div>
     <%=f.error_span(:description) %>
   </div>
-
+  <div class="form-group">
+    <div class="col-lg-12">
+      <%= f.text_field :tag_list, :class => 'form-control', :placeholder => "Schlagwörter (kommagetrennt)" %>
+    </div>
+    <%=f.error_span(:tag_list) %>
+  </div>
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>

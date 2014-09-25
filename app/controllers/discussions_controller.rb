@@ -5,7 +5,11 @@ class DiscussionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @discussions = Discussion.all
+    if params[:state].present?
+      @discussions = Discussion.where(:state => params[:state])
+    else
+      @discussions = Discussion.all
+    end
     respond_with(@discussions)
   end
 
@@ -26,6 +30,7 @@ class DiscussionsController < ApplicationController
     if current_user.present?
       @discussion.user = current_user
     end
+    @discussion.state = "opened"
     @discussion.save
     respond_with(@discussion)
   end
@@ -46,6 +51,6 @@ class DiscussionsController < ApplicationController
     end
 
     def discussion_params
-      params.require(:discussion).permit(:title, :description, :user, :state)
+      params.require(:discussion).permit(:title, :description, :user, :state, :tag_list)
     end
 end

@@ -27,6 +27,8 @@ gem 'ckeditor'
 #User Roles https://github.com/RolifyCommunity/rolify
 gem "rolify"
 
+gem 'acts-as-taggable-on'
+
 gem "less-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 

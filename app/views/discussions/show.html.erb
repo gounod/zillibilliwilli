@@ -10,6 +10,12 @@
   <dd><%= @discussion.try(:user).try(:short_name) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
   <dd><%= tag_label(@discussion.state, :success) %></dd>
+  <dt><strong>Keywords:</strong></dt>
+  <dd>
+    <% @discussion.tag_list.each do |tag| %>
+      <%= tag_label(tag, :default) %>
+    <% end %>
+  </dd>
 </dl>
 
 <% if @discussion.user == current_user || current_user.has_role?(:moderator, @discussion) || current_user.has_role?(:admin) %>
