@@ -53,7 +53,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to account_path(@account), notice: 'User was successfully created.' }
+        format.html { redirect_to account_path(@account), notice: 'Account wurde erfolgreich erstellt' }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
@@ -67,7 +67,7 @@ class AccountsController < ApplicationController
   def update
     respond_to do |format|
       if @account.update(user_params)
-        format.html { redirect_to account_path(@account), notice: 'User was successfully updated.' }
+        format.html { redirect_to profile_path(@account), notice: 'Account wurde erfolgreich aktualisiert.' }
         format.json { render :show, status: :ok, location: @account }
       else
         format.html { render :edit }
@@ -81,7 +81,7 @@ class AccountsController < ApplicationController
   def destroy
     @account.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'Account wurde erfolgreich gelöscht' }
       format.json { head :no_content }
     end
   end
@@ -94,7 +94,7 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:gender, :first_name, :last_name, :apartment, :email)
+      params.require(:user).permit(:gender, :first_name, :last_name, :apartment, :email, :notify_me_on_discussion_create, :notify_me_on_new_articles_i_follow, :notify_me_on_new_articles_i_moderate)
     end
 
     def check_admin_role

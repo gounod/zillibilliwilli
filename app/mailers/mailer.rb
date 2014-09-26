@@ -13,4 +13,19 @@ class Mailer < ActionMailer::Base
     @greeting = "Hallo #{user.short_name}"
     mail to: user.email
   end
+
+  def new_discussion(user, discussion)
+    @user = user
+    @greeting = "Hallo #{user.short_name}"
+    @discussion = discussion
+    mail to: user.email, :subject => "Neues Thema: #{discussion.title}"
+  end
+
+  def new_article(user, article)
+    @user = user
+    @greeting = "Hallo #{user.short_name}"
+    @article = article
+    mail to: user.email, :subject => "Neuer Beitrag: #{article.try(:discussion).try(:title)}"
+  end
+
 end

@@ -3,14 +3,13 @@
     <%= menu_item "Home", root_path %>
     <%= menu_item "Blog", "http://blog.gounod.berlin", :target => "_blank" %>
     <%= menu_item "Themen", discussions_path(:state => "opened") %>
-    <% if current_user.present? %>
-      <%= menu_item "Mein Profil", profile_path() %>
-    <% end %>
-    <%= menu_item "Contact", contact_path() %>
+
+    <%= menu_item "Kontakt", contact_path() %>
     <% if current_user.present? && current_user.has_role?(:admin) %>
       <%= menu_item "Accounts", accounts_path %>
     <% end %>
     <% if current_user.present? %>
+      <%= menu_item "Mein Profil", profile_path() %>
       <%= menu_item "Abmelden", destroy_user_session_path(), :method => :delete %>
     <% else %>
       <%= menu_item "Anmelden", new_user_session_path %>

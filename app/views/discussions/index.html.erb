@@ -11,11 +11,11 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th>Moderator</th>
       <th><%= model_class.human_attribute_name(:state) %></th>
       <th>Beiträge</th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%= model_class.human_attribute_name(:updated_at) %></th>
+      <th>Erstellt am</th>
+      <th>Letzer Beitrag am</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -23,14 +23,16 @@
     <% @discussions.each do |discussion| %>
       <tr>
         <td><%= link_to discussion.title, discussion_path(discussion) %></td>
-        <td><%= discussion.try(:user).try(:short_name) %></td>
+        <td><%= link_to "mailto:#{discussion.try(:user).try(:email)}?subject=#{discussion.title}" do %><span class="glyphicon glyphicon-envelope"></span> <%= discussion.try(:user).try(:short_name) %><% end %></td>
         <td><%= tag_label(discussion.state, :success) %></td>
-        <td><%= badge(discussion.articles.count, :warning) %> </td>
+        <td><center><%= badge(discussion.articles.count, :warning) %></center></td>
         <td><%= discussion.created_at.strftime("%d.%m.%Y %H:%M Uhr") %></td>
         <td><%= discussion.articles.try(:last).try(:updated_at).try(:strftime, "%d.%m.%Y %H:%M Uhr") %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_discussion_path(discussion), :class => 'btn btn-default btn-xs' %>
+          <%= link_to "Ansehen", discussion_path(discussion), :class => 'btn btn-success btn-xs' %>
+          <% if discussion.user == current_user || current_user.has_role?(:moderator, discussion) || current_user.has_role?(:admin) %>
+            <%= link_to "Bearbeiten", edit_discussion_path(discussion), :class => 'btn btn-default btn-xs' %>
+          <% end %>
           <% if current_user.has_role?(:admin) %>
             <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       discussion_path(discussion),

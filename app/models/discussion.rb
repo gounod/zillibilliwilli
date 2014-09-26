@@ -6,4 +6,13 @@ class Discussion < ActiveRecord::Base
   has_many :articles, :dependent => :delete_all
   acts_as_taggable
 
+  after_create :send_notifications
+
+
+  def send_notifications
+    User.where(:notify_me_on_discussion_create => true).each do |user|
+      Mailer.new_discussion(user,self).deliver
+    end
+  end
+
 end

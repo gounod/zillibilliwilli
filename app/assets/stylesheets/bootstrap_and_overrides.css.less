@@ -18,7 +18,7 @@
 @import "fontawesome/font-awesome";
 
 // Glyphicons
-//@import "twitter/bootstrap/glyphicons.less";
+@import "twitter/bootstrap/glyphicons.less";
 
 // Your custom LESS stylesheets goes here
 //
@@ -30,3 +30,14 @@
 //
 // Example:
 // @link-color: #ff0000;
+
+@media (min-width: @screen-md-min){
+  .left{
+    width:48%;
+    margin-right: 2%;
+  }
+  .right{
+    width:48%;
+    margin-left: 2%;
+  }
+}

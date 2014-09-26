@@ -16,46 +16,72 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :gender, :class => 'control-label col-lg-2' %>
+    <%= f.label :gender, "Anrede", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.select :gender, ["Herr","Frau"], {}, :class => 'form-control' %>
     </div>
     <%=f.error_span(:gender) %>
   </div>
   <div class="form-group">
-    <%= f.label :first_name, :class => 'control-label col-lg-2' %>
+    <%= f.label :first_name, "Vorname", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :first_name, :class => 'form-control' %>
     </div>
     <%=f.error_span(:first_name) %>
   </div>
   <div class="form-group">
-    <%= f.label :last_name, :class => 'control-label col-lg-2' %>
+    <%= f.label :last_name, "Nachname", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :last_name, :class => 'form-control' %>
     </div>
     <%=f.error_span(:last_name) %>
   </div>
   <div class="form-group">
-    <%= f.label :apartment, :class => 'control-label col-lg-2' %>
+    <%= f.label :apartment, "Wohnungsnummer", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :apartment, :class => 'form-control' %>
     </div>
     <%=f.error_span(:apartment) %>
   </div>
   <div class="form-group">
-    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <%= f.label :email, "Email", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :email, :class => 'form-control' %>
     </div>
     <%=f.error_span(:email) %>
   </div>
 
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Benachrichtigungen per Email</h3>
+    </div>
+    <div class="panel-body">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :notify_me_on_discussion_create %>
+          Benachrichtige mich, wenn ein neues Thema erstellt wird
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :notify_me_on_new_articles_i_moderate %>
+          Benachrichtige mich, wenn ein neuer Beitrag in meinem Thema erstellt wird
+        </label>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :notify_me_on_new_articles_i_follow %>
+          Benachrichtige mich, wenn ein neuer Beitrag in einem Thema erstellt wird, dem ich folge
+        </label>
+      </div>
+    </div>
+  </div>
+
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                accounts_path, :class => 'btn btn-default' %>
+      <%= f.submit "Speichern", :class => 'btn btn-primary' %>
     </div>
   </div>
 
