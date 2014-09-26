@@ -18,3 +18,13 @@
   </div>
 </div>
 </div>
+
+
+<% content_for :sidebar do %>
+  <h3>Themen</h3>
+  <u>
+    <% Discussion.where(:state => "opened").each do |discussion| %>
+      <li><%= discussion.title %> <%= badge(discussion.articles.count, :warning) %></li>
+    <% end %>
+  </u>
+<% end %>
