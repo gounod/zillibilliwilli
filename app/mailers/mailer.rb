@@ -8,9 +8,10 @@ class Mailer < ActionMailer::Base
   #
   #   en.mailer.login.subject
   #
-  def login(user)
+  def login(user,redirect_url)
     @user = user
     @greeting = "Hallo #{user.short_name}"
+    @redirect_url = redirect_url
     mail to: user.email
   end
 

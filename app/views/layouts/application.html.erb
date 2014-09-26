@@ -43,18 +43,23 @@
     <div id="header"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <% conent_width = (current_user.blank? || yield(:sidebar).present?) ? "col-lg-9" : "col-lg-12" %>
+        <div class="<%= conent_width %>">
           <%= bootstrap_flash %>
           <div id="popup"></div>
           <%= yield %>
         </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <% unless current_user %>
-              <%= render :partial => "layouts/newsletter" %>
-            <% end %>
-          </div><!--/.well -->
-        </div><!--/span-->
+        <% if current_user.blank? || yield(:sidebar).present? %>
+          <div class="col-lg-3">
+            <div class="well sidebar-nav">
+              <% unless current_user %>
+                <%= render :partial => "layouts/newsletter" %>
+              <% else %>
+                <%= yield(:sidebar) %>
+              <% end %>
+            </div><!--/.well -->
+          </div><!--/span-->
+        <% end %>
       </div><!--/row-->
 
       <footer>

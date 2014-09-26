@@ -14,7 +14,7 @@ class AccountsController < ApplicationController
       user = User.find_by_email(params[:user][:email])
       if user.present?
         user.save
-        Mailer.login(user).deliver
+        Mailer.login(user, request.referer).deliver
         flash[:notice] = "Es wurde eine Email an Ihre Adresse gesendet. Die Email enthält einen einmal gültigen Anmeldelink!"
         redirect_to root_path()
       else

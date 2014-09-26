@@ -3,7 +3,19 @@
 <p>
   <%= @greeting %>, folgen sie diesem Link um sich am Portal anzumelden:
 
-  <%= link_to "www.gounod.berlin", "http://www.gounod.berlin?auth_token=#{@user.authentication_token}" %>
+  <% if @redirect_url.present? %>
+    <% if @redirect_url.include?("?") %>
+      <%= link_to "www.gounod.berlin", "#{@redirect_url}&auth_token=#{@user.authentication_token}" %>
+    <% else %>
+      <%= link_to "www.gounod.berlin", "#{@redirect_url}?auth_token=#{@user.authentication_token}" %>
+    <% end %>
+
+  <% else %>
+    <%= link_to "www.gounod.berlin", "http://www.gounod.berlin?auth_token=#{@user.authentication_token}" %>
+  <% end %>
+
+
+
 </p>
 
 
