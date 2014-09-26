@@ -57,12 +57,13 @@
         </div>
       </div>
       <div class="row meta_description text-muted">
-        <div class="col-md-8 user">
+        <div class="col-md-6 user">
           <%= article.user.short_name %>
         </div>
-        <div class="col-md-4 date">
-          <%= article.created_at.strftime("%d.%m.%Y %H:%M Uhr") %>
+        <div class="col-md-6 date">
           <div style="float:right">
+            erstellt am: <%= article.created_at.strftime("%d.%m.%y %H:%M Uhr") %>
+            <span>&nbsp;&nbsp;</span>
             <% if @discussion.user == current_user || current_user.has_role?(:moderator, @discussion) || current_user.has_role?(:admin) || (article.user == current_user && (article.updated_at + 2.hours) > Time.now) %>
               <% if article.user == current_user && (article.updated_at + 2.hours) > Time.now  %>
                 <% edit_text = "(noch #{((article.updated_at + 2.hours - Time.now)/60).to_i} Minuten)" %>
