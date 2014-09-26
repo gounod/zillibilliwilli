@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'page/start'
   get 'page/contact', :as => :contact
+  get 'page/imprint', :as => :imprint
 
   resources :discussions do
     member do

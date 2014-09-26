@@ -6,4 +6,7 @@ class PageController < ApplicationController
 
   def contact
   end
+
+  def imprint
+  end
 end
