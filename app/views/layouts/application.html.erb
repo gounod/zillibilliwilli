@@ -42,7 +42,7 @@
       <%= menu_group :pull => :right do %>
         <%= menu_item "Home", root_path %>
         <%= menu_item "Blog", "http://blog.gounod.berlin", :target => "_blank" %>
-        <%= menu_item "Themen", discussions_path() %>
+        <%= menu_item "Themen", discussions_path(:state => "opened") %>
         <%= menu_item "Contact", contact_path() %>
         <% if current_user.present? && current_user.has_role?(:admin) %>
           <%= menu_item "Accounts", accounts_path %>

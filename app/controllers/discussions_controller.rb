@@ -5,8 +5,9 @@ class DiscussionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if params[:state].present?
-      @discussions = Discussion.where(:state => params[:state])
+    @state = params[:state]
+    if @state.present?
+      @discussions = Discussion.where(:state => @state)
     else
       @discussions = Discussion.all
     end
