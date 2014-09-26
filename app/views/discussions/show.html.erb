@@ -63,8 +63,8 @@
         <div class="col-md-4 date">
           <%= article.created_at.strftime("%d.%m.%Y %H:%M Uhr") %>
           <div style="float:right">
-            <% if @discussion.user == current_user || current_user.has_role?(:moderator, @discussion) || current_user.has_role?(:admin) || (article.user == current_user && article.updated_at + 2.hours > Time.now) %>
-              <% if article.user == current_user && article.updated_at + 2.hours > Time.now  %>
+            <% if @discussion.user == current_user || current_user.has_role?(:moderator, @discussion) || current_user.has_role?(:admin) || (article.user == current_user && (article.updated_at + 2.hours) > Time.now) %>
+              <% if article.user == current_user && (article.updated_at + 2.hours) > Time.now  %>
                 <% edit_text = "(noch #{((article.updated_at + 2.hours - Time.now)/60).to_i} Minuten)" %>
               <% else %>
                 <% edit_text = "" %>
