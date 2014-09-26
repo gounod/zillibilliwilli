@@ -41,7 +41,7 @@
       <%= nav_bar :fixed => :top, :responsive => true, :brand => "WEG Gounod 47 - 57", :brand_link => root_path() do %>
       <%= menu_group :pull => :right do %>
         <%= menu_item "Home", root_path %>
-        <%= menu_item "Blog", "http://blog.gounod.berlin" %>
+        <%= menu_item "Blog", "http://blog.gounod.berlin", :target => "_blank" %>
         <%= menu_item "Themen", discussions_path() %>
         <%= menu_item "Contact", contact_path() %>
         <% if current_user.present? && current_user.has_role?(:admin) %>
