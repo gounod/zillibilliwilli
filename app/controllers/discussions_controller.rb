@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class DiscussionsController < ApplicationController
-  before_action :set_discussion, only: [:show, :edit, :update, :destroy]
+  before_action :set_discussion, only: [:show, :edit, :update, :destroy, :change_state]
   before_action :authenticate_user!
 
   def index
@@ -24,6 +24,15 @@ class DiscussionsController < ApplicationController
   end
 
   def edit
+  end
+
+  def change_state
+    @state = params[:state]
+    if @state.present?
+      @discussion.state = @state
+      @discussion.save
+    end
+    redirect_to discussions_path(:state => @state)
   end
 
   def create

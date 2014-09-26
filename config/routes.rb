@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'page/contact', :as => :contact
 
   resources :discussions do
+    member do
+      get 'change_state'
+    end
     resources :articles
   end
   resources :accounts
