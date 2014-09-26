@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class DiscussionsController < ApplicationController
-  before_action :set_discussion, only: [:show, :edit, :update, :destroy, :change_state]
+  before_action :set_discussion, only: [:show, :edit, :update, :destroy, :change_state, :vote]
   before_action :authenticate_user!
 
   def index
@@ -53,6 +53,19 @@ class DiscussionsController < ApplicationController
   def destroy
     @discussion.destroy
     respond_with(@discussion)
+  end
+
+  def vote
+    if params[:vote].present?
+      if params[:vote] == "like"
+        @discussion.liked_by current_user
+        flash[:notice] = "Sie stimmen für dieses Thema."
+      else
+        @discussion.disliked_by current_user
+        flash[:notice] = "Sie stimmen gegen dieses Thema."
+      end
+    end
+    redirect_to discussion_path(@discussion)
   end
 
   private

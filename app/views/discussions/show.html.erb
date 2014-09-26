@@ -1,10 +1,16 @@
 <%- model_class = Discussion -%>
 <div class="page-header">
-  <h1>Thema: <%= @discussion.title %></h1>
+  <h1>Thema: <%= @discussion.title %>
+    <div style="float:right">
+      <%= link_to raw("<span class='glyphicon glyphicon-thumbs-up'></span>"), vote_discussion_path(@discussion, :vote => "like") %>
+      &nbsp;
+      <%= link_to raw("<span class='glyphicon glyphicon-thumbs-down'></span>"), vote_discussion_path(@discussion, :vote => "dislike") %>
+    </div>
+  </h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong>Thema:</strong></dt>
+  <dt><strong>Beschreibung:</strong></dt>
   <dd><%= raw(@discussion.description) %></dd>
   <dt><strong>Moderator:</strong></dt>
   <dd><%= @discussion.try(:user).try(:short_name) %></dd>
@@ -16,6 +22,10 @@
       <%= tag_label(tag, :default) %>
     <% end %>
   </dd>
+  <dt><span class='glyphicon glyphicon-thumbs-up'></span></dt>
+  <dd><%= @discussion.count_votes_up %>x</dd>
+  <dt><span class='glyphicon glyphicon-thumbs-down'></span></dt>
+  <dd><%= @discussion.count_votes_down %>x</dd>
 </dl>
 
 <% if @discussion.user == current_user || current_user.has_role?(:moderator, @discussion) || current_user.has_role?(:admin) %>
@@ -50,8 +60,13 @@
         <div class="col-md-8 user">
           <%= article.user.short_name %>
         </div>
-        <div class="col-md-3 date">
+        <div class="col-md-4 date">
           <%= article.created_at.strftime("%d.%m.%Y %H:%M Uhr") %>
+          <div style="float:right">
+            <%= link_to raw("<span class='glyphicon glyphicon-thumbs-up'></span>"), vote_discussion_article_path(@discussion, article, :vote => "like") %> <%= badge(article.count_votes_up, :primary) %>
+            <span>&nbsp;&nbsp;</span>
+            <%= link_to raw("<span class='glyphicon glyphicon-thumbs-down'></span>"), vote_discussion_article_path(@discussion, article, :vote => "dislike") %> <%= badge(article.count_votes_down, :primary) %>
+          </div>
         </div>
       </div>
     </div>

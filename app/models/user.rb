@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :discussions
   has_many :articles
 
+  acts_as_voter
+
 
   def short_name
     if self.last_name.present?

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :vote]
 
   def index
     @articles = Article.all
@@ -41,6 +41,20 @@ class ArticlesController < ApplicationController
     @article.destroy
     respond_with(@article)
   end
+
+  def vote
+    if params[:vote].present?
+      if params[:vote] == "like"
+        @article.liked_by current_user
+        flash[:notice] = "Sie stimmen für diesen Beitrag."
+      else
+        @article.disliked_by current_user
+        flash[:notice] = "Sie stimmen gegen diesen Beitag."
+      end
+    end
+    redirect_to discussion_path(@article.discussion)
+  end
+
 
   private
     def set_article

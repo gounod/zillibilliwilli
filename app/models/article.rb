@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
   belongs_to :user
 
   after_create :send_notifications
-
+  acts_as_votable
 
   def send_notifications
     #mail an Moderator, wenn er das will

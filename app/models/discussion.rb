@@ -5,6 +5,7 @@ class Discussion < ActiveRecord::Base
   belongs_to :user
   has_many :articles, :dependent => :delete_all
   acts_as_taggable
+  acts_as_votable
 
   after_create :send_notifications
 

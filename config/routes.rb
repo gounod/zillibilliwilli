@@ -10,8 +10,13 @@ Rails.application.routes.draw do
   resources :discussions do
     member do
       get 'change_state'
+      get 'vote'
     end
-    resources :articles
+    resources :articles do
+      member do
+        get 'vote'
+      end
+    end
   end
   get 'profile' => "accounts#profile", :as => :profile
   resources :accounts

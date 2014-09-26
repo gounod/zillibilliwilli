@@ -28,6 +28,7 @@ gem 'ckeditor'
 gem "rolify"
 
 gem 'acts-as-taggable-on'
+gem 'acts_as_votable', '~> 0.10.0'
 
 gem "less-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
