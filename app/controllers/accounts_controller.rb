@@ -5,6 +5,10 @@ class AccountsController < ApplicationController
   before_action :authenticate_user!, :except => [:login]
   before_action :check_admin_role, :except => [:login]
 
+  def profile
+    @account = current_user
+  end
+
   def login
     if params[:user].present? && params[:user][:email].present?
       user = User.find_by_email(params[:user][:email])
