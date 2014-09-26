@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   # User Roles
   rolify
 
-  # Include default devise modules. :omniauthable, :registerable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :lockable, :confirmable, :token_authenticatable
+  # Include default devise modules. :omniauthable, :registerable, :confirmable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :lockable, :token_authenticatable
   before_save :reset_authentication_token
   has_many :discussions
   has_many :articles
