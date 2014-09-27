@@ -5,8 +5,14 @@ class Article < ActiveRecord::Base
   belongs_to :discussion
   belongs_to :user
 
+  after_create :set_discussion_date
   after_create :send_notifications
   acts_as_votable
+
+  def set_discussion_date
+    self.discussion.updated_at = Time.now
+    self.discussion.save
+  end
 
   def send_notifications
     #mail an Moderator, wenn er das will

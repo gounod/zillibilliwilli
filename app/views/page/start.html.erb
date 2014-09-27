@@ -21,10 +21,10 @@
 
 
 <% content_for :sidebar do %>
-  <h3>Themen</h3>
-  <u>
-    <% Discussion.where(:state => "opened").each do |discussion| %>
-      <li><%= discussion.title %> <%= badge(discussion.articles.count, :warning) %></li>
+  <h3>Aktuelle Themen</h3>
+  <div class="list-group">
+    <% Discussion.where(:state => "opened").order("updated_at DESC").limit(10).each do |discussion| %>
+      <%= link_to discussion_path(discussion), :class=>"list-group-item" do %><%= discussion.title %> <%= badge(discussion.articles.count, :warning) %><% end %>
     <% end %>
-  </u>
+  </div>
 <% end %>
