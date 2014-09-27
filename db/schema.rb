@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926215152) do
+ActiveRecord::Schema.define(version: 20140927122827) do
 
   create_table "articles", force: true do |t|
     t.text     "description"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140926215152) do
     t.boolean  "notify_me_on_discussion_create",       default: false
     t.boolean  "notify_me_on_new_articles_i_follow",   default: false
     t.boolean  "notify_me_on_new_articles_i_moderate", default: false
+    t.boolean  "privacy",                              default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

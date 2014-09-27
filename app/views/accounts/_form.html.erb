@@ -53,6 +53,22 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
+      <h3 class="panel-title">Schutz der Privatsphäre</h3>
+    </div>
+    <div class="panel-body">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :privacy %>
+          Ich möchte meine Kontaktdaten anderen WEG Mitgliedern zur Verfügung stellen.
+          Diese werden dann beispielsweise im Bereich <%= link_to "Kontakt", contact_path() %> ausschließlich für angemeldete Mitglieder zu sehen sein.
+          Mein Name und meine Email erscheint dann auch in den von mir erstellten Themen und Kommentaren.
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
       <h3 class="panel-title">Benachrichtigungen per Email</h3>
     </div>
     <div class="panel-body">

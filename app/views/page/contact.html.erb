@@ -1,9 +1,41 @@
 <h2>Kontakt</h2>
 
-<address>
-  <strong>Marco Metz</strong><br>
-  Puccinistrasse 40<br>
-  13088 Berlin<br>
-  <abbr title="Phone">Mobil:</abbr> +49 (0) 176 48 18 2877<br>
-  <a href="mailto:#">marco.metz@gmail.com</a>
-</address>
+<% if current_user.present? %>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Kontakt zu WEG Mitgliedern</div>
+    <div class="panel-body">
+      <p>Folgend ein Übersicht aller WEG Mitglieder, die sich auf dem Portal registriert haben und Ihre Kontaktdaten ausßließlich den anderen WEG Mitgliedern zur Verfügung stellen wollen</p>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+        <tr>
+          <th>Anrede</th>
+          <th>Nachname</th>
+          <th>Email</th>
+          <th>Wohnungsnummer</th>
+        </tr>
+      <% User.where(:privacy => true).each do |user| %>
+        <tr>
+          <td><%= user.gender %></td>
+          <td><%= user.last_name %></td>
+          <td><%= link_to "mailto:#{user.email}?subject=WEG Gounodstaße 47 - 57" do %><span class="glyphicon glyphicon-envelope"></span> <%= user.email %><% end %></td>
+          <td><%= user.apartment %></td>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
+
+<% else %>
+
+  <address>
+    <strong>Marco Metz</strong><br>
+    Puccinistrasse 40<br>
+    13088 Berlin<br>
+    <abbr title="Phone">Mobil:</abbr> +49 (0) 176 48 18 2877<br>
+    <a href="mailto:#">marco.metz@gmail.com</a>
+  </address>
+
+<% end %>

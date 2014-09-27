@@ -14,10 +14,14 @@ class User < ActiveRecord::Base
 
 
   def short_name
-    if self.last_name.present?
-      [self.first_name.to_s[0],self.last_name].join(". ")
+    if self.privacy
+      if self.last_name.present?
+        [self.first_name.to_s[0],self.last_name].join(". ")
+      else
+        self.email
+      end
     else
-      self.email
+      "Anonym"
     end
   end
 end

@@ -14,9 +14,9 @@
   <dd><%= raw(@discussion.description) %></dd>
   <dt><strong>Moderator:</strong></dt>
   <dd><%= @discussion.try(:user).try(:short_name) %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
-  <dd><%= tag_label(@discussion.state, :success) %></dd>
-  <dt><strong>Keywords:</strong></dt>
+  <dt><strong>Status:</strong></dt>
+  <dd><%= tag_label(t(@discussion.state), :success) %></dd>
+  <dt><strong>Schlagwörter:</strong></dt>
   <dd>
     <% @discussion.tag_list.each do |tag| %>
       <%= tag_label(tag, :default) %>

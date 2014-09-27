@@ -25,8 +25,12 @@
     <% @discussions.each do |discussion| %>
       <tr>
         <td><%= link_to discussion.title, discussion_path(discussion) %></td>
-        <td><%= link_to "mailto:#{discussion.try(:user).try(:email)}?subject=#{discussion.title}" do %><span class="glyphicon glyphicon-envelope"></span> <%= discussion.try(:user).try(:short_name) %><% end %></td>
-        <td><%= tag_label(discussion.state, :success) %></td>
+        <% if discussion.user.present? && discussion.user.privacy %>
+          <td><%= link_to "mailto:#{discussion.try(:user).try(:email)}?subject=#{discussion.title}" do %><span class="glyphicon glyphicon-envelope"></span> <%= discussion.try(:user).try(:short_name) %><% end %></td>
+        <% else %>
+          <td><%= link_to "mailto:metz@gounod.berlin?subject=ID#{discussion.id}: #{discussion.title}" do %><span class="glyphicon glyphicon-envelope"></span> <%= discussion.try(:user).try(:short_name) %><% end %></td>
+        <% end %>
+        <td><%= tag_label(t(discussion.state) , :success) %></td>
         <td><center><%= badge(discussion.articles.count, :warning) %></center></td>
         <td><%= discussion.count_votes_up %></td>
         <td><%= discussion.count_votes_down %></td>
