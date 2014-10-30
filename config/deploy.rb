@@ -6,17 +6,17 @@ set :ssh_options, { :forward_agent => true }
 set :repository_cache, "git_cache"
 set :deploy_via, :remote_cache
 
-set :application, 'gounod'
-set :repo_url, 'git@github.com:gounod/crm.git'
+set :application, 'zillibilliwilli'
+set :repo_url, 'git@github.com:gounod/zillibilliwilli.git'
 
-set :deploy_to, '/home/gounod/website'
+set :deploy_to, '/home/zillibilliwilli/website'
 
 set :scm, :git
 set :bundle_flags, "--deployment --quiet --binstubs"
 
 set :use_sudo, false
 set :rbenv_ruby, '2.1.1'
-set :rbenv_path, '/home/gounod/.rbenv'
+set :rbenv_path, '/home/zillibilliwilli/.rbenv'
 set :rvm_type, :user                     # Defaults to: :auto
 set :rvm_ruby_version, '2.1.1'      # Defaults to: 'default'
 
