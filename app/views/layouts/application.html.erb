@@ -53,13 +53,16 @@
           <div class="col-lg-3">
             <div class="well sidebar-nav">
               <% unless current_user %>
-                <%= render :partial => "layouts/newsletter" %>
+                <h3>Aktuelle Themen</h3>
+                <div class="list-group">
+                </div>
               <% else %>
                 <%= yield(:sidebar) %>
               <% end %>
             </div><!--/.well -->
           </div><!--/span-->
         <% end %>
+
       </div><!--/row-->
 
       <footer>

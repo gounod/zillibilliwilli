@@ -1,7 +1,6 @@
-  <%= nav_bar :fixed => :top, :responsive => true, :brand => "WEG Gounodstraße 47 - 57", :brand_link => root_path() do %>
+  <%= nav_bar :fixed => :top, :responsive => true, :brand => "Zilli Billi Willi", :brand_link => root_path() do %>
   <%= menu_group :pull => :right do %>
     <%= menu_item "Home", root_path %>
-    <%= menu_item "Blog", "http://blog.gounod.berlin", :target => "_blank" %>
     <%= menu_item "Themen", discussions_path(:state => "opened") %>
 
     <%= menu_item "Kontakt", contact_path() %>
