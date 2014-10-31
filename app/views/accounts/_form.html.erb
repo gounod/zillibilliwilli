@@ -37,13 +37,6 @@
     <%=f.error_span(:last_name) %>
   </div>
   <div class="form-group">
-    <%= f.label :apartment, "Wohnungsnummer", :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :apartment, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:apartment) %>
-  </div>
-  <div class="form-group">
     <%= f.label :email, "Email", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :email, :class => 'form-control' %>
@@ -59,7 +52,7 @@
       <div class="checkbox">
         <label>
           <%= f.check_box :privacy %>
-          Ich möchte meine Kontaktdaten anderen WEG Mitgliedern zur Verfügung stellen.
+          Ich möchte meine Kontaktdaten anderen Eltern zur Verfügung stellen.
           Diese werden dann beispielsweise im Bereich <%= link_to "Kontakt", contact_path() %> ausschließlich für angemeldete Mitglieder zu sehen sein.
           Mein Name und meine Email erscheint dann auch in den von mir erstellten Themen und Kommentaren.
         </label>

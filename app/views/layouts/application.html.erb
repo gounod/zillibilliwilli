@@ -53,8 +53,14 @@
           <div class="col-lg-3">
             <div class="well sidebar-nav">
               <% unless current_user %>
-                <h3>Aktuelle Themen</h3>
+                <h3>Kontakt</h3>
                 <div class="list-group">
+                  <div class="list-group-item">
+                    <span class="glyphicon glyphicon-phone-alt"></span> 030 / 91 20 54 35
+                  </div>
+                  <div class="list-group-item">
+                    <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:info@zillibilliwilli.eu">info@zillibilliwilli.eu</a>
+                  </div>
                 </div>
               <% else %>
                 <%= yield(:sidebar) %>
@@ -66,7 +72,7 @@
       </div><!--/row-->
 
       <footer>
-        <p><%= link_to "Impressum", imprint_path() %> | &copy; WEG Gounodstraße 47 - 57 &nbsp; <%= Time.now.year %></p>
+        <p><%= link_to "Impressum", imprint_path() %> | &copy; Zilli Billi Willi &nbsp; <%= Time.now.year %></p>
       </footer>
 
     </div> <!-- /container -->
