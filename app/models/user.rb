@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
         self.email
       end
     else
-      "WEG-Mitglied"
+      "Anonym"
     end
   end
 end

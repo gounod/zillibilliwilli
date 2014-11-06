@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class Mailer < ActionMailer::Base
-  default from: "weg@gounod.berlin"
+  default from: "info@zillibilliwilli.gounod.berlin"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

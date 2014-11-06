@@ -1,17 +1,17 @@
-<h2>Anmeldung bei gounod.berlin</h2>
+<h2>Anmeldung bei zillibilliwilli.eu</h2>
 
 <p>
   <%= @greeting %>, klicken Sie bitte auf folgenden Link um sich am Portal einzuloggen:
 
   <% if @redirect_url.present? %>
     <% if @redirect_url.include?("?") %>
-      <%= link_to "http://www.gounod.berlin?auth_token=#{@user.authentication_token}", "#{@redirect_url}&auth_token=#{@user.authentication_token}" %>
+      <%= link_to "http://zillibilliwilli.gounod.berlin?auth_token=#{@user.authentication_token}", "#{@redirect_url}&auth_token=#{@user.authentication_token}" %>
     <% else %>
-      <%= link_to "http://www.gounod.berlin?auth_token=#{@user.authentication_token}", "#{@redirect_url}?auth_token=#{@user.authentication_token}" %>
+      <%= link_to "http://zillibilliwilli.gounod.berlin?auth_token=#{@user.authentication_token}", "#{@redirect_url}?auth_token=#{@user.authentication_token}" %>
     <% end %>
 
   <% else %>
-    <%= link_to "http://www.gounod.berlin?auth_token=#{@user.authentication_token}", "http://www.gounod.berlin?auth_token=#{@user.authentication_token}" %>
+    <%= link_to "http://zillibilliwilli.gounod.berlin?auth_token=#{@user.authentication_token}", "http://zillibilliwilli.gounod.berlin?auth_token=#{@user.authentication_token}" %>
   <% end %>
 
 
