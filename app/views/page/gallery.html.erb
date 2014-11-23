@@ -3,7 +3,7 @@
 <div class="row">
   <% @gallery.each do |upload| %>
     <div class="col-xs-6 col-md-3">
-      <%= link_to image_tag(upload.image(:medium), :style => "height:150px"), upload.image(:original), :class => "thumbnail" %>
+      <%= link_to image_tag(upload.image(:medium), :style => "height:150px"), upload.image(:original), :class => "thumbnail", "data-toggle" => "lightbox" %>
     </div>
   <% end %>
 </div>
