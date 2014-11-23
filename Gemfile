@@ -67,4 +67,5 @@ gem 'capistrano3-unicorn', group: :development
 gem 'debugger', group: [:development, :test]
 
 gem "paperclip", "~> 4.1"
+gem 'kaminari'
 

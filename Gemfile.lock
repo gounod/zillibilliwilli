@@ -121,6 +121,9 @@ GEM
     jquery-ui-rails (5.0.0)
       railties (>= 3.2.16)
     json (1.8.1)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.9.2)
     less (2.5.1)
       commonjs (~> 0.2.7)
@@ -242,6 +245,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  kaminari
   less-rails
   mysql2
   paperclip (~> 4.1)

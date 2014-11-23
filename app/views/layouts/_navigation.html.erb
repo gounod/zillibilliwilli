@@ -2,6 +2,7 @@
   <%= menu_group :pull => :right do %>
     <%= menu_item "Home", root_path %>
     <%= menu_item "Themen", discussions_path(:state => "opened") %>
+    <%= menu_item "Bilder", gallery_path() %>
 
     <%= menu_item "Kontakt", contact_path() %>
     <% if current_user.present? && current_user.has_role?(:admin) %>

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 Rails.application.routes.draw do
-  get 'uploads/new'
+  get 'uploads/new', :as => :upload
   resources :uploads
 
   post 'accounts/login', :as => :email_login
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'page/start'
   get 'page/contact', :as => :contact
   get 'page/imprint', :as => :imprint
+  get 'page/gallery', :as => :gallery
 
   resources :discussions do
     member do

@@ -1,0 +1,16 @@
+<h2>Bildergallerie</h2>
+
+<div class="row">
+  <% @gallery.each do |upload| %>
+    <div class="col-xs-6 col-md-3">
+      <%= link_to image_tag(upload.image(:medium), :style => "height:150px"), upload.image(:original), :class => "thumbnail" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="well">
+    <%= paginate @gallery %>
+    <%= link_to "Bilder hochladen", upload_path(), :class => "btn btn-primary btn-lg", :role => "button", :style => "float:right" %>
+  </div>
+</div>
