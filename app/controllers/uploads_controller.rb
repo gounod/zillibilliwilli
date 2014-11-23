@@ -19,10 +19,14 @@ class UploadsController < ApplicationController
 
   def destroy
     @upload = Upload.find(params[:id])
-    if @upload.destroy
-      render json: { message: "File deleted from server" }
-    else
-      render json: { message: @upload.errors.full_messages.join(',') }
+    respond_to do |format|
+      if @upload.destroy
+        format.json { render :json => { message: "File deleted from server" } }
+        format.html { redirect_to gallery_path() }
+      else
+        format.html { redirect_to gallery_path() }
+        format.json { render :json => { message: @upload.errors.full_messages.join(',') } }
+      end
     end
   end
 

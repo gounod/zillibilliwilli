@@ -3,6 +3,14 @@
 <div class="row">
   <% @gallery.each do |upload| %>
     <div class="col-xs-6 col-md-3">
+      <% if current_user.present? && current_user.has_role?(:admin) %>
+        <%= link_to "Delete", upload_path(upload), :method => :delete, :class => 'btn btn-xs btn-danger', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } %>
+        <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    upload_path(upload),
+                    :method => :delete,
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-xs btn-danger' %>
+      <% end %>
       <%= link_to image_tag(upload.image(:medium), :style => "height:150px"), upload.image(:original), :class => "thumbnail", "data-toggle" => "lightbox" %>
     </div>
   <% end %>
@@ -11,6 +19,6 @@
 <div class="row">
   <div class="well">
     <%= paginate @gallery %>
-    <%= link_to "Bilder hochladen", upload_path(), :class => "btn btn-primary btn-lg", :role => "button", :style => "float:right" %>
+    <%= link_to "Bilder hochladen", new_upload_path(), :class => "btn btn-primary btn-lg", :role => "button", :style => "float:right" %>
   </div>
 </div>
