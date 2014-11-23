@@ -1,6 +1,9 @@
 # encoding: utf-8
 
 Rails.application.routes.draw do
+  get 'uploads/new'
+  resources :uploads
+
   post 'accounts/login', :as => :email_login
 
   get 'page/start'
