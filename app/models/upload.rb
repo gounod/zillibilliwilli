@@ -3,8 +3,8 @@
 class Upload < ActiveRecord::Base
   has_attached_file :image,
                     :styles => { :medium => "300x150#",:thumb => "100x100>" },
-                    :path => "public/system/:class/:id/:filename",
-                    :url => "/system/:class/:id/:basename.:extension"
+                    :path => "public/system/:class/:id/:style/:filename",
+                    :url => "/system/:class/:id/:style/:basename.:extension"
 
   validates_attachment  :image,
                         :presence => true,
