@@ -1,7 +1,10 @@
 # encoding: utf-8
 
 class Upload < ActiveRecord::Base
-  has_attached_file :image, :styles => { :medium => "300x150#",:thumb => "100x100>" }
+  has_attached_file :image,
+                    :styles => { :medium => "300x150#",:thumb => "100x100>" },
+                    :path => "public/system/:class/:id/:filename",
+                    :url => "/system/:class/:id/:basename.:extension"
 
   validates_attachment  :image,
                         :presence => true,
